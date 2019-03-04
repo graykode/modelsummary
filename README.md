@@ -101,7 +101,7 @@ summary function has this parameter options`def summary(model, *inputs, batch_si
 - *input : your input tensor **datas** (Asterisk)
 - batch_size : `-1` is same with tensor `None`
 - intputshow : show input shape data, **if this parameter is False, it will show output shape** **default : True**
-- hierarchical : show hierarchical data structure, ***default : False**
+- hierarchical : show hierarchical data structure, **default : False**
 
 
 
