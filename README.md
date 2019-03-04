@@ -72,7 +72,7 @@ Non-trainable params: 0
 
 Just download with pip `modelsummary`
 
-`pip install modelsummary` and `import modelsummary as summary`
+`pip install modelsummary` and `from modelsummary import summary`
 
 You can use this library like this. If you see more detail, Please see example code.
 
