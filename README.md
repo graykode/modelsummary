@@ -30,10 +30,10 @@ class Net(nn.Module):
         return F.log_softmax(x, dim=1)
 
 # show input shape
-summary(Net(), torch.zeros((1, 1, 28, 28)), intputshow=True)
+summary(Net(), torch.zeros((1, 1, 28, 28)), inputshow=True)
 
 # show output shape
-summary(Net(), torch.zeros((1, 1, 28, 28)), intputshow=False)
+summary(Net(), torch.zeros((1, 1, 28, 28)), inputshow=False)
 ```
 
 ```
@@ -82,7 +82,7 @@ from modelsummary import summary
 model = your_model_name()
 
 # show input shape
-summary(model, (input tensor you want), intputshow=True)
+summary(model, (input tensor you want), inputshow=True)
 
 # show output shape
 summary(model, (input tensor you want), outputshow=True)
@@ -93,14 +93,14 @@ summary(model, (input tensor you want), hierarchical=True)
 
 
 
-summary function has this parameter options`def summary(model, *inputs, batch_size=-1, intputshow=True, outputshow=False, hierarchical=False)`
+summary function has this parameter options`def summary(model, *inputs, batch_size=-1, inputshow=True, outputshow=False, hierarchical=False)`
 
 #### Options
 
 - model : your model class
 - *input : your input tensor **datas** (Asterisk)
 - batch_size : `-1` is same with tensor `None`
-- intputshow : show input shape data, **if this parameter is False, it will show output shape** **default : True**
+- inputshow : show input shape data, **if this parameter is False, it will show output shape** **default : True**
 - hierarchical : show hierarchical data structure, **default : False**
 
 
@@ -113,7 +113,7 @@ Run example using Transformer Model in [Attention is all you need paper(2017)](h
 
 ```
 # show input shape
-summary(model, enc_inputs, dec_inputs, intputshow=True)
+summary(model, enc_inputs, dec_inputs, inputshow=True)
 
 -----------------------------------------------------------------------
              Layer (type)                Input Shape         Param #
@@ -255,7 +255,7 @@ Non-trainable params: 6,144
 
 ```
 # show output shape
-summary(model, enc_inputs, dec_inputs, intputshow=False)
+summary(model, enc_inputs, dec_inputs, inputshow=False)
 
 -----------------------------------------------------------------------
              Layer (type)               Output Shape         Param #

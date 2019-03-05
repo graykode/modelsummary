@@ -13,7 +13,7 @@ import torch.nn as nn
 from collections import OrderedDict
 from modelsummary.hierarchicalsummary import hierarchicalsummary
 
-def summary(model, *inputs, batch_size=-1, intputshow=True, hierarchical=False):
+def summary(model, *inputs, batch_size=-1, inputshow=True, hierarchical=False):
     if hierarchical is True:
         hierarchicalsummary(model)
         return
@@ -29,7 +29,7 @@ def summary(model, *inputs, batch_size=-1, intputshow=True, hierarchical=False):
             summary[m_key]["input_shape"] = list(input[0].size())
             summary[m_key]["input_shape"][0] = batch_size
 
-            if intputshow is False and output is not None:
+            if inputshow is False and output is not None:
                 if isinstance(output, (list, tuple)):
                     for out in output:
                         if isinstance(out, torch.Tensor):
@@ -53,7 +53,7 @@ def summary(model, *inputs, batch_size=-1, intputshow=True, hierarchical=False):
             summary[m_key]["nb_params"] = params
 
         if (not isinstance(module, nn.Sequential) and not isinstance(module, nn.ModuleList) and not (module == model)):
-            if intputshow is True:
+            if inputshow is True:
                 hooks.append(module.register_forward_pre_hook(hook))
             else:
                 hooks.append(module.register_forward_hook(hook))
@@ -71,7 +71,7 @@ def summary(model, *inputs, batch_size=-1, intputshow=True, hierarchical=False):
         h.remove()
 
     print("-----------------------------------------------------------------------")
-    if intputshow is True:
+    if inputshow is True:
         line_new = "{:>25}  {:>25} {:>15}".format("Layer (type)", "Input Shape", "Param #")
     else:
         line_new = "{:>25}  {:>25} {:>15}".format("Layer (type)", "Output Shape", "Param #")
@@ -82,7 +82,7 @@ def summary(model, *inputs, batch_size=-1, intputshow=True, hierarchical=False):
     trainable_params = 0
     for layer in summary:
         # input_shape, output_shape, trainable, nb_params
-        if intputshow is True:
+        if inputshow is True:
             line_new = "{:>25}  {:>25} {:>15}".format(
                 layer,
                 str(summary[layer]["input_shape"]),
@@ -96,7 +96,7 @@ def summary(model, *inputs, batch_size=-1, intputshow=True, hierarchical=False):
             )
 
         total_params += summary[layer]["nb_params"]
-        if intputshow is True:
+        if inputshow is True:
             total_output += np.prod(summary[layer]["input_shape"])
         else:
             total_output += np.prod(summary[layer]["output_shape"])
