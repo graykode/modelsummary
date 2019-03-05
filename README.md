@@ -85,7 +85,7 @@ model = your_model_name()
 summary(model, (input tensor you want), show_input=True)
 
 # show output shape
-summary(model, (input tensor you want), show_input=True)
+summary(model, (input tensor you want), show_input=False)
 
 # show hierarchical struct
 summary(model, (input tensor you want), show_hierarchical=True)
