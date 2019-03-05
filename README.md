@@ -310,7 +310,7 @@ summary(model, enc_inputs, dec_inputs, show_input=False)
                 Conv1d-48               [-1, 512, 5]       1,049,088
  PoswiseFeedForwardNet-49               [-1, 5, 512]               0
           EncoderLayer-50              [-1, 8, 5, 5]               0
-               Encoder-51            [[-1, 8, 5, 5]]               0
+               Encoder-51              [-1, 8, 5, 5]               0
              Embedding-52               [-1, 5, 512]           3,584
              Embedding-53               [-1, 5, 512]           3,072
                 Linear-54               [-1, 5, 512]         262,656
@@ -385,7 +385,7 @@ PoswiseFeedForwardNet-112               [-1, 5, 512]               0
                Conv1d-123               [-1, 512, 5]       1,049,088
 PoswiseFeedForwardNet-124               [-1, 5, 512]               0
          DecoderLayer-125              [-1, 8, 5, 5]               0
-              Decoder-126            [[-1, 8, 5, 5]]               0
+              Decoder-126              [-1, 8, 5, 5]               0
                Linear-127                 [-1, 5, 7]           3,584
 =======================================================================
 Total params: 39,396,352

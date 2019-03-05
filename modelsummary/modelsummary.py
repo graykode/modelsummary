@@ -39,7 +39,7 @@ def summary(model, *inputs, batch_size=-1, show_input=True, hierarchical=False):
                         else:
                             summary[m_key]["output_shape"] = [
                                 [-1] + list(out[0].size())[1:]
-                            ]
+                            ][0]
                 else:
                     summary[m_key]["output_shape"] = list(output.size())
                     summary[m_key]["output_shape"][0] = batch_size
