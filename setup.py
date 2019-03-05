@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup_info = dict(
     name='modelsummary',
-    version='1.1.4',
+    version='1.1.5',
     author='Tae Hwan Jung(@graykode)',
     author_email='nlkey2022@gmail.com',
     url='https://github.com/graykode/modelsummary',
