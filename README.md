@@ -88,12 +88,12 @@ summary(model, (input tensor you want), show_input=True)
 summary(model, (input tensor you want), show_input=True)
 
 # show hierarchical struct
-summary(model, (input tensor you want), hierarchical=True)
+summary(model, (input tensor you want), show_hierarchical=True)
 ```
 
 
 
-summary function has this parameter options`def summary(model, *inputs, batch_size=-1, show_input=True, hierarchical=False)`
+summary function has this parameter options`def summary(model, *inputs, batch_size=-1, show_input=True, show_hierarchical=False)`
 
 #### Options
 
@@ -101,7 +101,7 @@ summary function has this parameter options`def summary(model, *inputs, batch_si
 - *input : your input tensor **datas** (Asterisk)
 - batch_size : `-1` is same with tensor `None`
 - show_input : show input shape data, **if this parameter is False, it will show output shape** **default : True**
-- hierarchical : show hierarchical data structure, **default : False**
+- show_hierarchical : show hierarchical data structure, **default : False**
 
 
 
