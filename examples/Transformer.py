@@ -186,10 +186,10 @@ model = Transformer()
 enc_inputs, dec_inputs, target_batch = make_batch(sentences)
 
 # show input shape
-summary(model, enc_inputs, dec_inputs, intputshow=True)
+summary(model, enc_inputs, dec_inputs, show_input=True)
 
 # show output shape
-summary(model, enc_inputs, dec_inputs, intputshow=False)
+summary(model, enc_inputs, dec_inputs, show_input=False)
 
 # show hierarchical struct
 summary(model, enc_inputs, dec_inputs, hierarchical=True)

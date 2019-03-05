@@ -23,7 +23,7 @@ class Net(nn.Module):
         return F.log_softmax(x, dim=1)
 
 # show input shape
-summary(Net(), torch.zeros((1, 1, 28, 28)), intputshow=True)
+summary(Net(), torch.zeros((1, 1, 28, 28)), show_input=True)
 
 # show output shape
-summary(Net(), torch.zeros((1, 1, 28, 28)), intputshow=False)
+summary(Net(), torch.zeros((1, 1, 28, 28)), show_input=False)
