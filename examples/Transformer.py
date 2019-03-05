@@ -192,4 +192,4 @@ summary(model, enc_inputs, dec_inputs, show_input=True)
 summary(model, enc_inputs, dec_inputs, show_input=False)
 
 # show hierarchical struct
-summary(model, enc_inputs, dec_inputs, hierarchical=True)
+summary(model, enc_inputs, dec_inputs, show_hierarchical=True)

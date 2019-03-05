@@ -13,10 +13,9 @@ import torch.nn as nn
 from collections import OrderedDict
 from modelsummary.hierarchicalsummary import hierarchicalsummary
 
-def summary(model, *inputs, batch_size=-1, show_input=True, hierarchical=False):
-    if hierarchical is True:
+def summary(model, *inputs, batch_size=-1, show_input=True, show_hierarchical=False):
+    if show_hierarchical is True:
         hierarchicalsummary(model)
-        return
 
     def register_hook(module):
 
@@ -70,13 +69,16 @@ def summary(model, *inputs, batch_size=-1, show_input=True, hierarchical=False):
     for h in hooks:
         h.remove()
 
-    print("-----------------------------------------------------------------------")
+    if show_hierarchical is False:
+        print("-----------------------------------------------------------------------")
     if show_input is True:
         line_new = "{:>25}  {:>25} {:>15}".format("Layer (type)", "Input Shape", "Param #")
     else:
         line_new = "{:>25}  {:>25} {:>15}".format("Layer (type)", "Output Shape", "Param #")
-    print(line_new)
-    print("=======================================================================")
+    if show_hierarchical is False:
+        print(line_new)
+        print("=======================================================================")
+
     total_params = 0
     total_output = 0
     trainable_params = 0
@@ -103,7 +105,9 @@ def summary(model, *inputs, batch_size=-1, show_input=True, hierarchical=False):
         if "trainable" in summary[layer]:
             if summary[layer]["trainable"] == True:
                 trainable_params += summary[layer]["nb_params"]
-        print(line_new)
+
+        if show_hierarchical is False:
+            print(line_new)
 
     print("=======================================================================")
     print("Total params: {0:,}".format(total_params))
