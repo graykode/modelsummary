@@ -25,8 +25,12 @@ def summary(model, *inputs, batch_size=-1, show_input=True, show_hierarchical=Fa
 
             m_key = "%s-%i" % (class_name, module_idx + 1)
             summary[m_key] = OrderedDict()
-            summary[m_key]["input_shape"] = list(input[0].size())
-            summary[m_key]["input_shape"][0] = batch_size
+
+            if len(input) != 0 :
+                summary[m_key]["input_shape"] = list(input[0].size())
+                summary[m_key]["input_shape"][0] = batch_size
+            else:
+                summary[m_key]["input_shape"] = input
 
             if show_input is False and output is not None:
                 if isinstance(output, (list, tuple)):
